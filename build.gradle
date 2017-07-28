@@ -1,0 +1,49 @@
+version '0.1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'docker' // Gotta have this to make docker containers
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = 'spring-boot-docker-nxcore'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.thymeleaf:thymeleaf-spring4")
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE")
+        classpath("se.transmode.gradle:gradle-docker:1.2")
+    }
+}
+
+// Need to get this set to use a configed value and rename jar to a static
+//task buildDocker(type: Docker, dependsOn: build) {
+//    push = true
+//    applicationName = jar.baseName
+//    dockerfile = file('Dockerfile')
+//    doFirst {
+//        copy {
+//            from jar
+//            into stageDir
+//        }
+//    }
+//}
