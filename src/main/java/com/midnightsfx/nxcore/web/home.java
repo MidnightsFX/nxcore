@@ -2,9 +2,7 @@ package com.midnightsfx.nxcore.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -13,7 +11,7 @@ import java.util.Map;
  * Created by MidnightsFX on 7/21/17.
  */
 @Controller
-public class homeController {
+public class home {
 
     // inject via application.properties
     @Value("${welcome.message:test}")
@@ -24,16 +22,10 @@ public class homeController {
         model.put("now", LocalDateTime.now());
         return "index";
     }
-//    public String welcome(Map<String, Object> model) {
-//        model.put("message", this.message);
-//        return "welcome";
+
+//    @GetMapping("/config/properties")
+//    @ResponseBody
+//    java.util.Properties properties() {
+//        return System.getProperties();
 //    }
-
-
-
-    @GetMapping("/config/properties")
-    @ResponseBody
-    java.util.Properties properties() {
-        return System.getProperties();
-    }
 }

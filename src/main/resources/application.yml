@@ -1,0 +1,31 @@
+endpoints:
+  loggers:
+    location: '/loggers'
+    secure: true
+  autoconfig:
+    location: '/autoconfig'
+    secure: true
+  beans:
+    location: '/beans'
+    secure: true
+  dump:
+    location: '/dump'
+    secure: true
+  env:
+    location: '/env'
+    secure: true
+  health:
+    location: '/health'
+    secure: true
+  info:
+    location: '/info'
+    secure: true
+  metrics:
+    location: '/metrics'
+    secure: true
+  mappings:
+    location: '/mappings'
+    secure: true
+  trace:
+    location: '/trace'
+    secure: true
